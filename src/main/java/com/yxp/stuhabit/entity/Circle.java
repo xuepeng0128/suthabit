@@ -8,19 +8,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "school")
+@Document(collection = "circle")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class School {
-    @Id
-    private String schoolId;
-    private String schoolName;
-    private City city;
-    private District district;
-    private float longitude;
-    private float latitude ;
-    private String address;
-    private List<Grade> grades;
-
+// 圈子模板
+public class Circle {
+   @Id
+   private String  circleTemplateId;
+   private String  circleTemplateName;
+   private Habit Habits;
 }

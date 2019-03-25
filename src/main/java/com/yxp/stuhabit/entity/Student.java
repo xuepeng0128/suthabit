@@ -22,5 +22,6 @@ public class Student {
    @DateTimeFormat(pattern = "yyyy-MM-dd")
    private Date birthday;
    private String paperId;
+   private String tel;
    private List<StartSchool> startSchoolHis ;  // 入学历史
 }
