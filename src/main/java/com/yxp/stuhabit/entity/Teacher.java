@@ -13,9 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class Teacher {
     @Id
-    private ObjectId _id;
-    private String paperId;
-    private String teacherName;
-    private String rank;
-    private String photo;
+    private String paperId; // 身份证
+    private String tel; // 电话
+    private String teacherName; // 老师姓名
+    private String rank; // 当前职务
 }

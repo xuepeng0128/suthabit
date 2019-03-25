@@ -16,16 +16,11 @@ import java.util.List;
 // 标准习惯模板
 public class Habit {
   @Id
-  private String  habitId;
+  private String habitId;
   private String habitName;
-  private List<Habit> subHabit;
-  private Employee employee;
-  private Teacher principalPublisher;
-  private Teacher teacherPublisher;
-  private Student studentPublisher; // 家长发布
-  private Date beginDate;
-  private Date endDate;
-
-
+  private String beloneHabitClass ; // (1,德2.智3.体4.美5.劳)
+  private String memo ; // 文本描述
+  private String vedioUrl ; // 视频
+  private String audioUrl ; // 音频
 
 }

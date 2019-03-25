@@ -16,12 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Student {
     @Id
-   private String  studentId;
-   private String studentName;
-   private String sex;
-   @DateTimeFormat(pattern = "yyyy-MM-dd")
-   private Date birthday;
    private String paperId;
+   private String studentName;
    private String tel;
-   private List<StartSchool> startSchoolHis ;  // 入学历史
+
 }

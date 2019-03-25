@@ -12,11 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class User {
     @Id
-    private String account;
-    private String passWord;
-    private Employee employee;
-    private Teacher teacher;
-    private Student student;
-    private boolean isSupperAdmin;
-    private boolean isAdmin;
+    private String account; // 账号
+    private String passWord; // 密码
+    private Employee employee; // 员工用户(为空，非员工用户)
+    private Teacher teacher;  // 老师用户
+    private boolean isSupperAdmin; // 是否超级管理员
+    private boolean isAdmin; // 是否学校，机构管理员
+    private School  manageSchool; // 管理员或老师所在学校
 }
