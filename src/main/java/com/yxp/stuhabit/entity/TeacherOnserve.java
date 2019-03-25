@@ -10,6 +10,7 @@ public class TeacherOnserve {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date beginDate; //任教开始日期
     private Teacher teacher; // 任教老师
+    private Rank rank; // 职务
     @Nullable
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate; // 任教结束日期

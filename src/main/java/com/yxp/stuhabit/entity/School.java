@@ -14,13 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 public class School {
     @Id
-    private String schoolId;
-    private String schoolName;
-    private City city;
-    private District district;
-    private float longitude;
-    private float latitude ;
-    private String address;
-    private List<Grade> grades;
-
+    private String schoolId; // 学校编号
+    private String schoolName; // 学校名称
+    private City city; // 市
+    private District district; // 区
+    private float longitude; // 经度坐标
+    private float latitude ; // 纬度坐标
+    private String address; // 地址
+    private List<Grade> grades;  // 当前班级
+    private List<Employee> saleMans; // 业务员
 }
