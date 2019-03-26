@@ -21,6 +21,15 @@ public class UserCtrl {
            List<User> userlist = svr.userList(account,employeeName,teacher,schoolId,kind,pageSize,pageNo);
            return userlist;
     }
+
+    @PostMapping(value="/validateUser")
+    public User validateUser(User user){
+           User ruser = svr.userLogin(user);
+           return ruser;
+    }
+
+
+
     @PostMapping(value="/insertUser")
     public User insertUser(@RequestBody User user){
          return svr.insertUser(user);

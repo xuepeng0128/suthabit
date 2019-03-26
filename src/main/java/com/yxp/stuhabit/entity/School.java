@@ -22,5 +22,5 @@ public class School {
     private float latitude ; // 纬度坐标
     private String address; // 地址
     private List<Classes> classes;  // 当前班级
-    private List<Employee> saleMans; // 业务员
+    private Employee saleMans; // 业务员
 }
