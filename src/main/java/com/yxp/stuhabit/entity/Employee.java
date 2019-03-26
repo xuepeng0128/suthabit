@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class Employee {
     @Id
-    private String employeeId;
+    private String paperId;
     private String employeeName;
     private String tel;
     private String duty;

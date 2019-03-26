@@ -1,4 +1,41 @@
 package com.yxp.stuhabit.controller.corp.system;
 
+import com.yxp.stuhabit.entity.Employee;
+import com.yxp.stuhabit.service.system.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/api/corp/system/employee", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
 public class EmployeeCtrl {
+    @Autowired
+    private EmployeeService svr;
+
+    @GetMapping(value="/employeeList")
+    public List<Employee> employeeList(String paperId, String employeeName, String tel, String dutyName, String pageSize, String pageNo){
+        List<Employee> employeelist = svr.employeeList(paperId, employeeName,tel,  dutyName,pageSize,pageNo);
+        return employeelist;
+    }
+    @PostMapping(value="/insertEmployee")
+    public Employee insertEmployee(@RequestBody Employee employee){
+        return svr.insertEmployee(employee);
+    }
+    @PostMapping(value="/updateEmployee")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        return svr.updateEmployee(employee);
+    }
+
+    @GetMapping(value="/deleteEmployee")
+    public String deleteEmployee(String paperId){
+        try {
+            svr.deleteEmployee(paperId);
+            return "ok";
+        }catch (Exception ex){
+            return "fail" + ex.toString();
+        }
+    }    
+
+    
 }
