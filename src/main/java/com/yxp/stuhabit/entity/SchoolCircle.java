@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// 学校圈子模板
+// 学校圈子
 public class SchoolCircle {
    @Id
    private String  circleId;

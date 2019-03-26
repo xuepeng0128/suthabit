@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 import java.util.List;
 
-// 学校机构创建的习惯
+// 学校机构老师创建的习惯
 public class TeacherHabit {
     @Id
     private ObjectId _id;

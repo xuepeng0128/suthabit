@@ -1,11 +1,19 @@
 package com.yxp.stuhabit.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 //班级
 
 
-
+@Document(collection = "classes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Classes {
     private int grade;  // 年纪
     private int classes;// 班级
