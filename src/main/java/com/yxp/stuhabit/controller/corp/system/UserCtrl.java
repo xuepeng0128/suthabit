@@ -1,8 +1,5 @@
 package com.yxp.stuhabit.controller.corp.system;
 
-import com.yxp.stuhabit.entity.Employee;
-import com.yxp.stuhabit.entity.School;
-import com.yxp.stuhabit.entity.Teacher;
 import com.yxp.stuhabit.entity.User;
 import com.yxp.stuhabit.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

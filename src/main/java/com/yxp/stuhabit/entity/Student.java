@@ -18,6 +18,8 @@ public class Student {
     @Id
    private String paperId;
    private String studentName;
+   private Date birthday;
+   private String sex;
    private String tel;
 
 }
