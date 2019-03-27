@@ -19,4 +19,5 @@ public class User {
     private boolean isSupperAdmin; // 是否超级管理员
     private boolean isAdmin; // 是否学校，机构管理员
     private School  manageSchool; // 管理员或老师所在学校
+    private Menu    powerMenu;  // 所拥有的权限
 }

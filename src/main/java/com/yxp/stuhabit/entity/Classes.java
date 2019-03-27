@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Classes {
     @Id
-    private ObjectId _id;
+    private ObjectId id;
     private int grade;  // 年纪
     private int classes;// 班级
     private School school; // 所属学校
