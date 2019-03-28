@@ -9,7 +9,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SchoolServiceImp implements SchoolService {
@@ -18,24 +20,41 @@ public class SchoolServiceImp implements SchoolService {
     @Autowired
     private SchoolRepo repo;
     @Override
-    public List<School> schoolList(String schoolId, String schoolName, String cityId, String districtId, String address, String paperId, String pageSize, String pageNo) {
+    public Map<String,Object> schoolList(String schoolId, String schoolName, String districtId, String address,
+                                         String employeeName, String pageSize, String pageNo, String getTotal) {
+        Map<String,Object> map=new HashMap<String,Object>();
         Criteria criteria = new Criteria( );
         if (schoolId!=null && !schoolId.equals(""))
         {
-            criteria=criteria.and("schoolId").regex(".*" +paperId +"*.");
+            criteria=criteria.and("schoolId").regex(".*" +schoolId +"*.");
         }
         if (schoolName!=null && !schoolName.equals(""))
         {
             criteria=criteria.and("schoolName").regex(".*" +schoolName +"*.");
         }
-        if (cityId!=null && !cityId.equals(""))
+        if (districtId!=null && !districtId.equals(""))
         {
-            criteria=criteria.and("city.cityId").regex(".*" +cityId +"*.");
+            criteria=criteria.and("district.districtId").is(districtId);
+        }
+        if (address!=null && !address.equals(""))
+        {
+            criteria=criteria.and("address").regex(".*" +address +"*.");
+        }
+        if (employeeName!=null && !employeeName.equals(""))
+        {
+            criteria=criteria.and("saleMan").regex(".*" +employeeName +"*.");
         }
         Query query= new Query();
-        query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+        query.addCriteria(criteria);
+        if(getTotal.equals("1"))
+        {
+           map.put("total" , mongoTemplate.count(query,School.class));
+        }
+
+        query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
         List<School> list = mongoTemplate.find(query,School.class);
-        return list;
+        map.put("list",list);
+        return map;
     }
 
     @Override

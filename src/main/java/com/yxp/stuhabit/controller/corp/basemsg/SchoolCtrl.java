@@ -15,7 +15,8 @@ public class SchoolCtrl {
     private SchoolService svr;
 
      @GetMapping(value="/schoolList")
-     public List<School> schoolList(String schoolId, String schoolName, String cityId, String districtId, String address, String paperId, String pageSize, String pageNo) {
+     public List<School> schoolList(String schoolId, String schoolName, String cityId, String districtId,
+                                    String address, String paperId, String pageSize, String pageNo) {
          List<School> list=svr.schoolList( schoolId,  schoolName,  cityId, districtId,  address, paperId,pageSize, pageNo);
          return list;
      }

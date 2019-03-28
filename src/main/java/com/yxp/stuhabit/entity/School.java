@@ -16,10 +16,9 @@ public class School {
     @Id
     private String schoolId; // 学校编号
     private String schoolName; // 学校名称
-    private City city; // 市
     private District district; // 区
     private float longitude; // 经度坐标
     private float latitude ; // 纬度坐标
     private String address; // 地址
-    private Employee saleMans; // 业务员
+    private Employee saleMan; // 业务员
 }
