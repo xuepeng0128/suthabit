@@ -8,6 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
@@ -19,7 +21,7 @@ public class UploadFileCtrl {
 
     @RequestMapping(value = "/uploadFileToLocal")
     public String uploadFileToLocal(MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        uploadFileToRepo(file,request,response);
+       // uploadFileToRepo(file,request,response);
         String filename=file.getOriginalFilename();
         String path = "";
         String[] str =  filename.split("\\.");
@@ -52,15 +54,52 @@ public class UploadFileCtrl {
         return filename;
     }
 
-    @RequestMapping(value = "/uploadFileToRepo")
-    public void uploadFileToRepo(MultipartFile file, HttpServletRequest request, HttpServletResponse response){
-        String filename=file.getOriginalFilename();
-        try {
-            ObjectId oi=gft.store(file.getInputStream(),filename);
-        } catch (IOException e) {
+    @RequestMapping(value = "/uploadFileTodb")
+    public void uploadFileToRepo(MultipartFile[] files, HttpServletRequest request, HttpServletResponse response){
+        PrintWriter writer = null;
+        String[] fileids=null;
+       if(files.length==0)
+       {
+           writer.print("无上传文件");
 
-            e.printStackTrace();
-        }
+       }else{
+           fileids=new String[files.length];
+           for(int i=0;i< files.length;i++)
+           {
+               String filename=files[i].getOriginalFilename();
+               try {
+                   ObjectId oi=gft.store(files[i].getInputStream(),filename);
+                   fileids[i]=oi.toHexString();
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
+           }
+       }
+       writer.print(Arrays.stream(fileids).collect(Collectors.joining(",")));
+
+
+//        try {
+//
+//
+//            //response.reset();
+//            //response.setCharacterEncoding("UTF-8");
+//            //response.setContentType("text/html");
+//            //Access-Control-Allow-Credentials  true
+//            //Access-Control-Allow-Origin   *
+//            try {
+//                writer = response.getWriter();
+//            } catch (IOException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//            writer.print(oi.toHexString());
+//
+//
+//
+//        } catch (IOException e) {
+//
+//            e.printStackTrace();
+//        }
     }
 
 }

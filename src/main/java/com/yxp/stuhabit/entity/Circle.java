@@ -3,6 +3,7 @@ package com.yxp.stuhabit.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,11 +14,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// 学校圈子
-public class SchoolCircle {
+// 圈子
+public class Circle {
    @Id
-   private String  circleId;
+   private ObjectId circleId;
    private String  circleName;
+   private School school;
+   private TrainSchool trainSchool;
    private Teacher buildMan; // 创建人
    private Date buildDate; // 创建日期
    private List<Teacher> teachers ;// 圈内老师

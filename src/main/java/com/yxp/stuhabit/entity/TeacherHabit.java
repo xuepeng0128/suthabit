@@ -10,7 +10,7 @@ import java.util.List;
 public class TeacherHabit {
     @Id
     private ObjectId id;
-    private SchoolCircle schoolCircle; // 所属圈子
+    private Circle schoolCircle; // 所属圈子
     private TeacherOnserve onserveTeacher; // 创建习惯的任职老师
     private Habit habit;  // 创建的习惯
     private boolean Alljoin; // 是否圈子全员参加
