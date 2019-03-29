@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "school")
@@ -21,4 +22,5 @@ public class School {
     private float latitude ; // 纬度坐标
     private String address; // 地址
     private Employee saleMan; // 业务员
+    private Date regTime; // 注册时间
 }

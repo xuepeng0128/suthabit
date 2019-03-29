@@ -13,7 +13,12 @@ public class DistrictServiceImp implements DistrictService {
     @Autowired
     private DistrictRepo repo;
     @Override
-    public List<District> studentList() {
+    public List<District> districtList() {
         ;return repo.findAll();
+    }
+
+    @Override
+    public District singleDistrict(String districtId) {
+        return repo.findById(districtId).orElse(null);
     }
 }

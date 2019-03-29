@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/corp/system/employee", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
@@ -14,10 +15,16 @@ public class EmployeeCtrl {
     private EmployeeService svr;
 
     @GetMapping(value="/employeeList")
-    public List<Employee> employeeList(String paperId, String employeeName, String tel, String dutyName, String pageSize, String pageNo){
-        List<Employee> employeelist = svr.employeeList(paperId, employeeName,tel,  dutyName,pageSize,pageNo);
-        return employeelist;
+    public Map<String,Object> employeeList(String paperId, String employeeName, String tel, String dutyName, String pageSize, String pageNo,String getTotal){
+        return svr.employeeList(paperId, employeeName,tel,  dutyName,pageSize,pageNo,getTotal);
     }
+
+    @GetMapping(value="/singleEmployee")
+    public Employee singleEmployee(String paperId){
+        return svr.singleEmployee(paperId);
+    }
+
+
     @PostMapping(value="/insertEmployee")
     public Employee insertEmployee(@RequestBody Employee employee){
         return svr.insertEmployee(employee);

@@ -51,7 +51,9 @@ public class SchoolServiceImp implements SchoolService {
            map.put("total" , mongoTemplate.count(query,School.class));
         }
 
-        query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+        if (pageNo != null){
+            query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+        }
         List<School> list = mongoTemplate.find(query,School.class);
         map.put("list",list);
         return map;

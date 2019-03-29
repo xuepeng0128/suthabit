@@ -19,8 +19,12 @@ public class DistrictCtrl {
 
     @GetMapping(value="/districtList")
     public List<District> districtList(){
-        return svr.studentList();
+        return svr.districtList();
     }
 
+    @GetMapping(value="/singleDistrict")
+    public District singleDistrict(String districtId){
+           return svr.singleDistrict(districtId);
+    }
 
 }

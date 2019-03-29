@@ -6,5 +6,6 @@ import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import java.util.List;
 
 public interface DistrictService {
-    public List<District> studentList();
+    public List<District> districtList();
+    public District singleDistrict(String districtId);
 }

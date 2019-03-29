@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/corp/basemsg/school", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
@@ -15,10 +16,10 @@ public class SchoolCtrl {
     private SchoolService svr;
 
      @GetMapping(value="/schoolList")
-     public List<School> schoolList(String schoolId, String schoolName, String cityId, String districtId,
-                                    String address, String paperId, String pageSize, String pageNo) {
-         List<School> list=svr.schoolList( schoolId,  schoolName,  cityId, districtId,  address, paperId,pageSize, pageNo);
-         return list;
+     public Map<String,Object> schoolList(String schoolId, String schoolName, String cityId, String districtId,
+                                          String address, String employeeName, String pageSize, String pageNo, String getTotal) {
+         return svr.schoolList( schoolId,  schoolName,  districtId,  address, employeeName,pageSize, pageNo,getTotal);
+
      }
 
      @PostMapping(value = "/insertSchool")
