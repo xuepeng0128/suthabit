@@ -19,7 +19,7 @@ public class StudentServiceImp implements StudentService {
     @Autowired
     private MongoTemplate mongoTemplate;
     @Override
-    public List<Student> studentList(String paperId, String studentName, String ageBegin, String ageEnd, String pageSize, String pageNo) {
+    public List<Student> studentList(String paperId, String studentName,String sex, String ageBegin, String ageEnd, String pageSize, String pageNo,String getTotal) {
         Criteria criteria = new Criteria( );
         if (paperId!=null && !paperId.equals(""))
         {
@@ -28,6 +28,10 @@ public class StudentServiceImp implements StudentService {
         if (studentName!=null && !studentName.equals(""))
         {
             criteria=criteria.and("studentName").regex(".*" +studentName +"*.");
+        }
+        if (sex != null && !sex.equals("") && !sex.equals("0") )
+        {
+            criteria=criteria.and("sex").is(sex);
         }
 //        if (ageBegin!=null && !ageBegin.equals(""))
 //        {

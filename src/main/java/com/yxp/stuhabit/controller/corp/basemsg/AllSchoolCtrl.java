@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/corp/basemsg/school", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
-public class SchoolCtrl {
+public class AllSchoolCtrl {
      @Autowired
     private SchoolService svr;
 

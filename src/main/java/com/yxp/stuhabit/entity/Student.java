@@ -20,6 +20,7 @@ public class Student {
    private String studentName;
    private Date birthday;
    private String sex;
+   private String address ; // 家庭住址
    private String tel;
 
 }

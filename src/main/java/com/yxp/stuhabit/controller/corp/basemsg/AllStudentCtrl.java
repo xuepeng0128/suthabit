@@ -13,13 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/corp/basemsg/student", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
 
-public class StudentCtrl {
+public class AllStudentCtrl {
    @Autowired
     private StudentService svr;
 
     @GetMapping(value="/studentList")
-    public List<Student> studentList(String paperId, String studentName, String ageBegin , String ageEnd, String pageSize, String pageNo){
-        return svr.studentList(paperId, studentName, ageBegin ,  ageEnd,  pageSize,  pageNo);
+    public List<Student> studentList(String paperId, String studentName,String sex, String ageBegin , String ageEnd, String pageSize, String pageNo,String getTotal){
+        return svr.studentList(paperId, studentName, sex,ageBegin ,  ageEnd,  pageSize,  pageNo,getTotal);
     }
 
 

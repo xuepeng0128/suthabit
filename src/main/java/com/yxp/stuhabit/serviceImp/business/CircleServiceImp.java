@@ -10,10 +10,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class CircleServiceImp implements CircleService {
@@ -22,9 +19,10 @@ public class CircleServiceImp implements CircleService {
     @Autowired
     private CircleRepo repo;
     @Override
-    public List<Circle> circleList(String circleName, String schoolId, String schoolName, String trainSchoolId, String trainSchoolName,
-                                   String teacherPaperId, String teacharName, String studentName, String studentPaperId,
-                                   String buildDateBegin, String buildDateEnd, String pageSize, String pageNo) {
+    public Map<String,Object> circleList(String circleName, String schoolId, String schoolName, String trainSchoolId, String trainSchoolName,
+                                         String teacherPaperId, String teacharName, String studentName, String studentPaperId,
+                                         Date buildDateBegin, Date buildDateEnd, String pageSize, String pageNo, String getTotal) {
+        Map<String,Object> map= new HashMap<String,Object>();
         Criteria criteria = new Criteria( );
         if (circleName!=null && !circleName.equals(""))
         {
@@ -63,24 +61,33 @@ public class CircleServiceImp implements CircleService {
             criteria=criteria.and("student.studentName").regex(".*" +studentName +"*.");
         }
 
-        if (buildDateBegin!=null && !buildDateBegin.equals(""))
+        if (buildDateBegin!=null )
         {
-            criteria=criteria.and("buildDate").gte(new Date(buildDateBegin));
+            criteria=criteria.and("buildDate").gte(buildDateBegin);
         }
-        if (buildDateEnd!=null && !buildDateEnd.equals(""))
+        if (buildDateEnd!=null )
         {
 
             Calendar calendar = new GregorianCalendar();
-            calendar.setTime(new Date(buildDateEnd));
+            calendar.setTime(buildDateEnd);
             calendar.add(calendar.DATE,1);
             criteria=criteria.and("buildDate").lt(calendar.getTime());
         }
 
 
         Query query= new Query();
-        query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+        query.addCriteria(criteria);
+        if (getTotal.equals("1"))
+        {
+            long total= mongoTemplate.count(query,Circle.class);
+            map.put("total",total);
+        }
+
+
+        query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
         List<Circle> list = mongoTemplate.find(query,Circle.class);
-        return list;
+        map.put("list",list);
+        return map;
     }
 
     @Override

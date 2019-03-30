@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/corp/basemsg/teacher", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
-public class TeacherCtrl {
+public class AllTeacherCtrl {
     @Autowired
     private TeacherService svr;
 

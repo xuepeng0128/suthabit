@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/corp/system/user", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
-public class UserCtrl {
+public class AllUserCtrl {
     @Autowired
     private UserService svr;
 
@@ -18,6 +18,8 @@ public class UserCtrl {
            List<User> userlist = svr.userList(account,employeeName,teacher,schoolId,kind,pageSize,pageNo);
            return userlist;
     }
+
+
 
     @PostMapping(value="/validateUser")
     public User validateUser(User user){

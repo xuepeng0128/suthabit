@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/corp/basemsg/classes", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json;charset=UTF-8")
-public class ClassesCtrl {
+public class AllClassesCtrl {
     @Autowired
     private ClassesService svr;
 
