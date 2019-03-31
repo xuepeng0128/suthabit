@@ -22,7 +22,7 @@ public class AllUserCtrl {
 
 
     @PostMapping(value="/validateUser")
-    public User validateUser(User user){
+    public User validateUser(@RequestBody  User user){
            User ruser = svr.userLogin(user);
            return ruser;
     }

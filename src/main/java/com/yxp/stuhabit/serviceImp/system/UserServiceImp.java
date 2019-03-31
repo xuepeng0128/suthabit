@@ -1,5 +1,6 @@
 package com.yxp.stuhabit.serviceImp.system;
 
+import com.yxp.stuhabit.common.Md5Tool;
 import com.yxp.stuhabit.entity.User;
 import com.yxp.stuhabit.repo.system.UserRepo;
 import com.yxp.stuhabit.service.system.UserService;
@@ -51,7 +52,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User userLogin(User user) {
-        return userRepo.findUserByAccountAndPassWord(user.getAccount(),user.getPassWord());
+        return userRepo.findUserByAccountAndPassWord(user.getAccount(), Md5Tool.string2MD5(user.getPassWord()));
     }
 
     @Override
