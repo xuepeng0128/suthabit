@@ -15,5 +15,5 @@ public class TeacherOnserve {
     private School school; // 任教学校
     private int grade;  // 年纪
     private int classes;// 班级
-    private Rank rank; // 职务
+    private TeacherDuty teacherDuty; // 职务
 }

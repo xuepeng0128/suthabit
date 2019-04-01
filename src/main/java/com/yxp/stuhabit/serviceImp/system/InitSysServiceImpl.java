@@ -56,39 +56,43 @@ public class InitSysServiceImpl implements InitSysService {
                         "               ] " +
                         "   }  ,   " +
                         "   { 'menuId' :'108', 'menuName' :'字典管理', 'url' : '/','powers':'', 'kind':1,'subMenu':[" +
-
+                        "                   { 'menuId' :'10801', 'menuName' :'微习惯资源池', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
                         "               ] " +
                         "   }  ,   " +
                         "   { 'menuId' :'109', 'menuName' :'系统管理', 'url' : '/','powers':'','kind':1, 'subMenu':[" +
-                        "                   { 'menuId' :'10901', 'menuName' :'微习惯通用模板', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'10902', 'menuName' :'员工管理', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'10903', 'menuName' :'系统用户', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'10904', 'menuName' :'第三方机构管理员', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10901', 'menuName' :'员工管理', 'url' : '/frame/corpsystem/employee','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10902', 'menuName' :'系统用户', 'url' : '/frame/corpsystem/user','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10903', 'menuName' :'用户权限', 'url' : '/frame/corpsystem/userPower','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10904', 'menuName' :'第三方机构管理员', 'url' : '/frame/corpsystem/schoolAdmin','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10905', 'menuName' :'修改密码', 'url' : '/frame/corpsystem/changePwd','powers':'','kind':1, 'subMenu':[ ] }," +
                         "               ] " +
                         "   } ,    " +
                         "   { 'menuId' :'201', 'menuName' :'基础数据', 'url' : '/','powers':'','kind':2, 'subMenu':[" +
                         "                   { 'menuId' :'00501', 'menuName' :'学校信息', 'url' : '/','powers':'','kind':2, 'subMenu':[ ] }," +
                         "                   { 'menuId' :'00502', 'menuName' :'教师信息', 'url' : '/','powers':'', 'kind':2,'subMenu':[ ] }," +
                         "                   { 'menuId' :'00503', 'menuName' :'班级信息', 'url' : '/','powers':'','kind':2, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'00504', 'menuName' :'学生信息', 'url' : '/','powers':'','kind':2, 'subMenu':[ ] }," +
                         "               ] " +
                         "   { 'menuId' :'202', 'menuName' :'微习惯', 'url' : '/','powers':'','kind':2, 'subMenu':[" +
                         "                   { 'menuId' :'00601', 'menuName' :'习惯圈', 'url' : '/frame/dictionary/unit','powers':'', 'subMenu':[ ] }," +
                         "                   { 'menuId' :'00602', 'menuName' :'学生打卡', 'url' : '/','powers':'', 'subMenu':[ ] }," +
                         "                   { 'menuId' :'00603', 'menuName' :'打卡考评', 'url' : '/','powers':'', 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'00604', 'menuName' :'考试成绩导入', 'url' : '/','powers':'', 'subMenu':[ ] }," +
+                        "               ] " +
+                        "   } ,    " +
+                        "   { 'menuId' :'203', 'menuName' :'微达学院', 'url' : '/','powers':'','kind':2, 'subMenu':[" +
+                        "                   { 'menuId' :'00601', 'menuName' :'课程发布', 'url' : '/frame/dictionary/unit','powers':'', 'subMenu':[ ] }," +
+
                         "               ] " +
                         "   } ,    " +
                         "   { 'menuId' :'203', 'menuName' :'统计分析', 'url' : '/','powers':'', 'subMenu':[" +
-                        "                   { 'menuId' :'00601', 'menuName' :'计量单位', 'url' : '/frame/dictionary/unit','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00602', 'menuName' :'品牌', 'url' : '/','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00603', 'menuName' :'付款约定', 'url' : '/','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00604', 'menuName' :'付款方式', 'url' : '/','powers':'', 'subMenu':[ ] }," +
+
                         "               ] " +
                         "   },     " +
                         "   { 'menuId' :'209', 'menuName' :'系统管理', 'url' : '/','powers':'', 'subMenu':[" +
-                        "                   { 'menuId' :'00601', 'menuName' :'计量单位', 'url' : '/frame/dictionary/unit','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00602', 'menuName' :'品牌', 'url' : '/','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00603', 'menuName' :'付款约定', 'url' : '/','powers':'', 'subMenu':[ ] }," +
-                        "                   { 'menuId' :'00604', 'menuName' :'付款方式', 'url' : '/','powers':'', 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'00601', 'menuName' :'用户管理', 'url' : '/frame/dictionary/unit','powers':'', 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'00602', 'menuName' :'用户权限', 'url' : '/','powers':'', 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'00603', 'menuName' :'修改密码', 'url' : '/','powers':'', 'subMenu':[ ] }," +
                         "               ] " +
                         "   }     " +
                        "]";
