@@ -18,9 +18,9 @@ public class Habit {
   @Id
   private String habitId;
   private String habitName;
-  private String beloneHabitClass ; // (1,德2.智3.体4.美5.劳)
+  private String habitClass ; // (1,德2.智3.体4.美5.劳)
   private String memo ; // 文本描述
   private String vedioUrl ; // 视频
   private String audioUrl ; // 音频
-
+  private String picUrl; // 图片
 }

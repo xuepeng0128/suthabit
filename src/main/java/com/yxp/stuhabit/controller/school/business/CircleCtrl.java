@@ -1,6 +1,8 @@
 package com.yxp.stuhabit.controller.school.business;
 
 import com.yxp.stuhabit.entity.Circle;
+import com.yxp.stuhabit.entity.Habit;
+import com.yxp.stuhabit.entity.TeacherHabit;
 import com.yxp.stuhabit.service.business.CircleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +34,15 @@ public class CircleCtrl {
         }
 
     }
+
+
+    // 老师发布习惯
+    @PostMapping(value="/publishTeacherHabit")
+    public TeacherHabit publishTeacherHabit( @RequestBody  Habit habit){
+      return null;
+    }
+
+
 
 
 

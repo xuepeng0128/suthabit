@@ -7,6 +7,7 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import com.yxp.stuhabit.entity.School;
 import com.yxp.stuhabit.entity.Teacher;
+import com.yxp.stuhabit.entity.TeacherDuty;
 import com.yxp.stuhabit.entity.TeacherOnserve;
 import com.yxp.stuhabit.service.basemsg.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@ public class AllTeacherCtrl {
                 ArrayList<String> row = CollUtil.newArrayList(
                         teacher.getPaperId(),
                         teacher.getTeacherName(),
-                        teacher.getRank(),
+                        Optional.ofNullable(teacher.getTeacherDuty()).orElse(new TeacherDuty()).getTeacherDutyName(),
                         teacher.getTel(),
                         Optional.ofNullable(
                               Optional.ofNullable(teacher.getOnserve()).orElse(new TeacherOnserve()).getSchool()
@@ -77,8 +78,7 @@ public class AllTeacherCtrl {
             }
         }
 
-
-
+       return filePath;
 
 
     }
