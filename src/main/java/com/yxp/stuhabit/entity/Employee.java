@@ -18,7 +18,7 @@ public class Employee {
     private String paperId;
     private String employeeName;
     private String tel;
-    private String duty;
+    private CorpDuty duty;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date   enterDate;
     private Integer  onDutyState;

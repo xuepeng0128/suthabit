@@ -31,8 +31,8 @@ public class AllTeacherCtrl {
     private TeacherService svr;
 
     @GetMapping(value="/teacherList")
-    public Map<String ,Object> teacherList(String paperId,String teacherName,String schoolName,String duty,String pageSize,String pageNo,String getTotal){
-          return svr.teacherList(paperId,teacherName,schoolName,duty,pageSize,pageNo,getTotal);
+    public Map<String ,Object> teacherList(String paperId,String teacherName,String schoolId , String schoolName,String duty,String pageSize,String pageNo,String getTotal){
+          return svr.teacherList(paperId,teacherName,schoolId, schoolName,duty,pageSize,pageNo,getTotal);
     }
 
     @GetMapping(value="/singleTeacher")
@@ -43,12 +43,12 @@ public class AllTeacherCtrl {
 
 
     @GetMapping(value="/teacherExcel")
-    public String teacherExcel(String paperId,String teacherName,String schoolName,String duty,String pageSize,String pageNo,String getTotal) throws UnsupportedEncodingException {
+    public String teacherExcel(String paperId,String teacherName,String schoolId,String schoolName,String duty,String pageSize,String pageNo,String getTotal) throws UnsupportedEncodingException {
         String filePath = "/export/" + RandomUtil.randomString(20).toUpperCase() + ".xls";
         String tmpFile = URLDecoder.decode(ClassUtils.getDefaultClassLoader().getResource("").getPath(), "UTF-8") + "/static" + filePath;
         ExcelWriter bigWriter = ExcelUtil.getBigWriter(tmpFile);
 
-        List<Teacher> teacherList = (List<Teacher>) svr.teacherList(paperId,teacherName,schoolName,duty,"5000","1","0").get("list");
+        List<Teacher> teacherList = (List<Teacher>) svr.teacherList(paperId,teacherName,schoolId,schoolName,duty,"5000","1","0").get("list");
         if (teacherList.isEmpty())
         {
             return "nodata";

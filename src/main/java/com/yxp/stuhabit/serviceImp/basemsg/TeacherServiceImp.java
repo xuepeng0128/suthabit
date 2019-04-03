@@ -20,7 +20,7 @@ public class TeacherServiceImp implements TeacherService {
     @Autowired
     private TeacherRepo repo;
     @Override
-    public Map<String, Object> teacherList(String paperId, String teacherName, String schoolName, String duty, String pageSize, String pageNo, String getTotal) {
+    public Map<String, Object> teacherList(String paperId, String teacherName, String schoolId,String schoolName, String duty, String pageSize, String pageNo, String getTotal) {
         Map<String,Object> map=new HashMap<String,Object>();
         Criteria criteria = new Criteria( );
         if (paperId!=null && !paperId.equals(""))
@@ -30,6 +30,10 @@ public class TeacherServiceImp implements TeacherService {
         if (teacherName!=null && !teacherName.equals(""))
         {
             criteria=criteria.and("teacherName").regex(".*" +teacherName +"*.");
+        }
+        if (schoolId!=null && !schoolId.equals(""))
+        {
+            criteria=criteria.and("onserve.school.schoolId").is(schoolId);
         }
         if (schoolName!=null && !schoolName.equals(""))
         {
@@ -63,6 +67,11 @@ public class TeacherServiceImp implements TeacherService {
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return repo.insert(teacher);
+    }
+
+    @Override
+    public List<Teacher> saveAllTeacher(List<Teacher> teachers) {
+        return repo.saveAll(teachers);
     }
 
     @Override

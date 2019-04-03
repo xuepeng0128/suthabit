@@ -28,5 +28,6 @@ public class Circle {
    private List<Teacher> teachers ;// 圈内老师
    private List<Student> students; // 圈内学生
    private Date endDate; // 圈子关闭时间
-   private String CloseReason ; // 关闭原因
+   private String closeReason ; // 关闭原因
+   private String closeMan ; // 关闭人
 }
