@@ -16,13 +16,13 @@ import java.util.Map;
 public class AllCircleCtrl {
    @Autowired
    private CircleService svr;
-    @GetMapping(value="/circleList")
-    public Map<String,Object> circleList(String circleName, String schoolId, String schoolName, String trainSchoolId, String trainSchoolName, String teacherPaperId,
-                                         String teacharName, String studentName, String studentPaperId, @DateTimeFormat(pattern="yyyy-MM-dd") Date buildDateBegin ,
-                                         @DateTimeFormat(pattern="yyyy-MM-dd") Date buildDateEnd, String pageSize, String pageNo, String getTotal) {
-          return svr.circleList( circleName, schoolId,schoolName, trainSchoolId,trainSchoolName,teacherPaperId,
-                  teacharName, studentName,studentPaperId, buildDateBegin , buildDateEnd,
-                  pageSize,pageNo,getTotal);
+    @GetMapping(value="/allcircleList")
+    public Map<String,Object> allcircleList(String schoolstyle,String circleName,  String schoolName,
+                                          @DateTimeFormat(pattern="yyyy-MM-dd") Date buildDateBegin ,String queryPaperId,
+                                          @DateTimeFormat(pattern="yyyy-MM-dd") Date buildDateEnd, String pageSize, String pageNo, String getTotal) {
+          return svr.allcircleList(  schoolstyle, circleName, schoolName,
+                   buildDateBegin ,  buildDateEnd, queryPaperId,
+                   pageSize,  pageNo ,  getTotal);
     }
 
 

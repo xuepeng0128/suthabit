@@ -21,6 +21,7 @@ public class School {
     private float longitude; // 经度坐标
     private float latitude ; // 纬度坐标
     private String address; // 地址
+    private String schoolStyle; // 1.小学，2.初中
     private Employee saleMan; // 业务员
     private Date regTime; // 注册时间
 }

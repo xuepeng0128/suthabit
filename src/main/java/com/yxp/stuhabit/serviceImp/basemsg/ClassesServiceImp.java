@@ -53,6 +53,28 @@ public class ClassesServiceImp implements ClassesService {
     }
 
     @Override
+    public List<Classes> schoolclassesList(String grade, String classes, String schoolId, String headmasterName) {
+        Criteria criteria = new Criteria( );
+        if (grade!=null && !grade.equals(""))
+        {
+            criteria=criteria.and("grade").is(Integer.parseInt(grade));
+        }
+        if (classes!=null && !classes.equals(""))
+        {
+            criteria=criteria.and("classes").is(Integer.parseInt(classes));
+        }
+        if (schoolId!=null && !schoolId.equals(""))
+        {
+            criteria=criteria.and("school.schoolId").regex(".*" +schoolId +"*.");
+        }
+
+        Query query= new Query();
+        query.addCriteria(criteria);
+        List<Classes> list = mongoTemplate.find(query,Classes.class);
+        return list;
+    }
+
+    @Override
     public Classes insertClasses(Classes classes) {
         return repo.insert(classes);
     }

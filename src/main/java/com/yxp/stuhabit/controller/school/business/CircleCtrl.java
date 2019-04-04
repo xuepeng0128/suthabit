@@ -36,11 +36,6 @@ public class CircleCtrl {
     }
 
 
-    // 老师发布习惯
-    @PostMapping(value="/publishTeacherHabit")
-    public TeacherHabit publishTeacherHabit( @RequestBody  Habit habit){
-      return null;
-    }
 
 
 

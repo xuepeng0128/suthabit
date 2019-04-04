@@ -14,10 +14,10 @@ public class ClassesCtrl {
     @Autowired
     private ClassesService svr;
 
-    @GetMapping(value="/classesList")
-    public List<Classes> classesList (String grade, String classes , String schoolId, String schoolName, String paperId, String studentName, String pageSize, String pageNo)
+    @GetMapping(value="/schoolClassesList")
+    public List<Classes> schoolClassesList (String grade, String classes, String schoolId, String headmasterName)
     {
-        return svr.classesList(grade,classes ,schoolId, schoolName,paperId, studentName, pageSize, pageNo);
+        return svr.schoolclassesList(grade,classes, schoolId, headmasterName);
     }
 
     @PostMapping(value = "/insertClasses")
