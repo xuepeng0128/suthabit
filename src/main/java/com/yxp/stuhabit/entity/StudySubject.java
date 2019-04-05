@@ -10,10 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+public class StudySubject {
     @Id
-    private String subjectId;
-    private String subjectName;
+    private String studySubjectId;
+    private String studySubjectName;
     private String  habitClass ;
 
 }

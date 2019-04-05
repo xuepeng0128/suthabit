@@ -56,7 +56,11 @@ public class InitSysServiceImpl implements InitSysService {
                         "               ] " +
                         "   }  ,   " +
                         "   { 'menuId' :'108', 'menuName' :'字典管理', 'url' : '/','powers':'', 'kind':1,'subMenu':[" +
-                        "                   { 'menuId' :'10801', 'menuName' :'微习惯资源池', 'url' : '/','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10801', 'menuName' :'微习惯资源池', 'url' : '/frame/corpdic/habittemplate','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10802', 'menuName' :'公司职务', 'url' : '/frame/corpdic/corpduty','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10803', 'menuName' :'学校职务', 'url' : '/frame/corpdic/teacherduty','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10804', 'menuName' :'学校课程', 'url' : '/frame/corpdic/studysubject','powers':'','kind':1, 'subMenu':[ ] }," +
+                        "                   { 'menuId' :'10805', 'menuName' :'试卷题型', 'url' : '/frame/corpdic/questiontype','powers':'','kind':1, 'subMenu':[ ] }," +
                         "               ] " +
                         "   }  ,   " +
                         "   { 'menuId' :'109', 'menuName' :'系统管理', 'url' : '/','powers':'','kind':1, 'subMenu':[" +

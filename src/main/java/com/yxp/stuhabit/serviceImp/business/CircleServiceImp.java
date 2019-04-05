@@ -83,7 +83,7 @@ public class CircleServiceImp implements CircleService {
 
         Query query= new Query();
         query.addCriteria(criteria);
-        if (getTotal.equals("1"))
+        if (getTotal!= null && getTotal.equals("1"))
         {
             long total= mongoTemplate.count(query,Circle.class);
             map.put("total",total);
@@ -147,7 +147,7 @@ public class CircleServiceImp implements CircleService {
 
         Query query= new Query();
         query.addCriteria(criteria);
-        if (getTotal.equals("1"))
+        if (getTotal!= null && getTotal.equals("1"))
         {
             long total= mongoTemplate.count(query,Circle.class);
             map.put("total",total);

@@ -13,8 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class CorpDuty {
     @Id
-    public String corpDutyId;
-    public String corpDutyName;
-    public String supDutyId;
-
+    private String corpDutyId;
+    private String corpDutyName;
+    private boolean master;
 }

@@ -12,5 +12,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SubjectExamClass {
     private String subjectExamClassId;
     private String getSubjectExamClassName;
-    private Subject subject;
+    private StudySubject subject;
 }

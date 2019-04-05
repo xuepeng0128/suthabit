@@ -20,12 +20,13 @@ public class HabitTemplateCtrl {
     }
     // 插入习惯资源
     @PostMapping(value="/insertHabit")
-    public Habit insertHabit(Habit habit){
-      return svr.insertHabit(habit);
+    public Habit insertHabit( @RequestBody  Habit habit){
+        Habit h =svr.insertHabit(habit);
+        return h;
     }
     // 修改习惯
     @PostMapping(value="/updateHabit")
-    public Habit updateHabit(Habit habit){
+    public Habit updateHabit( @RequestBody  Habit habit){
        return svr.updateHabit(habit);
     }
     //删除

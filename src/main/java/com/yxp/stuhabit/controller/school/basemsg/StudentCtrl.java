@@ -53,9 +53,9 @@ public class StudentCtrl extends XlsRead {
                     e.printStackTrace();
                 }
                 ////////////////////////////////////////////////////
-                insertflag = dealXlsFile(this.path, this.guidname, this.tablename);
+                insertflag = dealXlsFile(this.path, this.guidname, this.tablename,"");
             } else if (originFileName.equals("XLSX")) {
-                insertflag = dealXlsxFile(this.path, this.guidname, this.tablename);
+                insertflag = dealXlsxFile(this.path, this.guidname, this.tablename,"");
             } else {
                 resMap.put("status", "上传文件失败！");
                 retstr = JSON.toJSONString(resMap);
@@ -79,13 +79,15 @@ public class StudentCtrl extends XlsRead {
     }
 
 
+
+
     @Override
-    public boolean dealXlsFile(String path, String guidname, String tablename) {
+    public boolean dealXlsFile(String path, String guidname, String tablename, String otherMsgJson) {
         return false;
     }
 
     @Override
-    public boolean dealXlsxFile(String path, String guidname, String tablename) {
+    public boolean dealXlsxFile(String path, String guidname, String tablename, String otherMsgJson) {
         return false;
     }
 }

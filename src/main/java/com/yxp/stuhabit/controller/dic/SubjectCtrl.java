@@ -1,6 +1,6 @@
 package com.yxp.stuhabit.controller.dic;
 
-import com.yxp.stuhabit.entity.Subject;
+import com.yxp.stuhabit.entity.StudySubject;
 import com.yxp.stuhabit.service.dic.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class SubjectCtrl {
     private SubjectService svr;
 
     @GetMapping(value="/subjectList")
-    public List<Subject> subjectList(){
+    public List<StudySubject> subjectList(){
         return svr.subjectList();
     }
 

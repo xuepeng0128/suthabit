@@ -38,7 +38,7 @@ public class EmployeeServiceImp implements EmployeeService {
         }
         Query query= new Query();
         query.addCriteria(criteria);
-        if(getTotal.equals("1"))
+        if(getTotal!= null && getTotal.equals("1"))
         {
             map.put("total" , mongoTemplate.count(query,Employee.class));
         }
