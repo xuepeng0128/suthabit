@@ -14,6 +14,8 @@ public class MenuServiceImp implements MenuService {
     private MenuRepo repo;
     @Override
     public List<Menu> menuList(int kind) {
-        return repo.findMenuByKind(kind);
+
+            return repo.findMenuByKind(kind);
+
     }
 }

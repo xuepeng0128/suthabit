@@ -20,6 +20,11 @@ public class TeacherDutyServiceImp implements TeacherDutyService {
     }
 
     @Override
+    public TeacherDuty findTeacherDutyById(String teacherDutyId) {
+        return repo.findById(teacherDutyId).orElse(null);
+    }
+
+    @Override
     public TeacherDuty insertTeacherDuty(TeacherDuty teacherDuty) {
         return repo.insert(teacherDuty);
     }

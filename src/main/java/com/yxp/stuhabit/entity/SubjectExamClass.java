@@ -3,6 +3,7 @@ package com.yxp.stuhabit.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "subjectexamclass")
@@ -10,7 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubjectExamClass {
+    @Id
     private String subjectExamClassId;
-    private String getSubjectExamClassName;
-    private StudySubject subject;
+    private String subjectExamClassName;
+    private StudySubject studySubject;
 }

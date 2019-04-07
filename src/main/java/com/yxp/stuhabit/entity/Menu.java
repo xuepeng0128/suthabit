@@ -20,5 +20,7 @@ public class Menu {
    private List<Menu> subMenu ; // 上级菜单编号
    private String  url ; // 链接地址
    private List<Map<String,Boolean>>  powers; // 权限
-   private int kind; // 1.公司 ，2.学校，3.机构
+   private int  kind; // 1.公司 ，2.学校，3.机构
+
+
 }

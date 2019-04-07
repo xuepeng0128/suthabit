@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface HabitService {
     public List<Habit> habitList();
+    public Habit findHabitById(String HabitId);
     public Habit insertHabit(Habit habit);
     public Habit updateHabit(Habit habit);
     public void  deleteHabit(String habitId);

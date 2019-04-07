@@ -18,6 +18,11 @@ public class HabitServiceImp implements HabitService {
     }
 
     @Override
+    public Habit findHabitById(String HabitId) {
+        return repo.findById(HabitId).orElse(null);
+    }
+
+    @Override
     public Habit insertHabit(Habit habit) {
         return repo.insert(habit);
     }

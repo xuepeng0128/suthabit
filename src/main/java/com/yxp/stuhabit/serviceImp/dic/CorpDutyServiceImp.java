@@ -18,6 +18,11 @@ public class CorpDutyServiceImp implements CorpDutyService {
     }
 
     @Override
+    public CorpDuty findCorpDutyById(String corpDutyId) {
+        return repo.findById(corpDutyId).orElse(null);
+    }
+
+    @Override
     public CorpDuty insertCorpDuty(CorpDuty corpDuty) {
         return repo.insert(corpDuty);
     }

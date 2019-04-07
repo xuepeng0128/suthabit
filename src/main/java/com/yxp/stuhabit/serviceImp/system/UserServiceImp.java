@@ -20,7 +20,7 @@ public class UserServiceImp implements UserService {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<User> userList(String account, String employeeName, String teacher,String schoolId,String kind, String pageSize, String pageNo) {
+    public List<User> userList(String account, String employeeName, String teacher,String schoolId,String kind,String schoolAdmin, String pageSize, String pageNo) {
         Criteria criteria = new Criteria();
         if (account!=null && !account.equals(""))
         {
@@ -37,12 +37,15 @@ public class UserServiceImp implements UserService {
         if (kind.equals("1"))
         {
             criteria=criteria.and("teacher").exists(false);
-            criteria=criteria.orOperator(new Criteria().and("isSupperAdmin").is(true));
+            criteria=criteria.orOperator(new Criteria().and("supperAdmin").is(true));
         }else if (kind.equals("2"))
         {
             criteria=criteria.and("employee").exists(false);
             criteria=criteria.and("manageSchool.schoolId").is(schoolId);
-            criteria=criteria.orOperator(new Criteria().and("isAdmin").is(true));
+            criteria=criteria.orOperator(new Criteria().and("schoolAdmin").is(true));
+        }
+        if (schoolAdmin != null && !schoolAdmin.isEmpty()){
+            criteria=criteria.and("schoolAdmin").is(true);
         }
         Query query= new Query();
         query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));

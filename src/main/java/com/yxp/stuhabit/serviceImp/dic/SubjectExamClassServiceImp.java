@@ -18,6 +18,11 @@ public class SubjectExamClassServiceImp implements SubjectExamClassService {
     }
 
     @Override
+    public SubjectExamClass findSubjectExamClassById(String subjectExamClassId) {
+        return repo.findById(subjectExamClassId).orElse(null);
+    }
+
+    @Override
     public SubjectExamClass insertSubjectExamClass(SubjectExamClass subjectExamClass) {
         return repo.insert(subjectExamClass);
     }

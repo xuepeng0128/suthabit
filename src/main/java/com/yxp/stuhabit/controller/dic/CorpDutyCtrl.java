@@ -19,6 +19,13 @@ public class CorpDutyCtrl {
         List<CorpDuty> list= svr.corpDutyList();
         return list;
     }
+
+    @GetMapping(value="/findById")
+    public CorpDuty findById(String corpDutyId){
+        return svr.findCorpDutyById(corpDutyId);
+    }
+
+
     @PostMapping(value="/insertCorpDuty")
     public CorpDuty insertCorpDuty(@RequestBody CorpDuty corpDuty){
         CorpDuty d = svr.insertCorpDuty(corpDuty);

@@ -14,8 +14,8 @@ public class AllUserCtrl {
     private UserService svr;
 
     @GetMapping(value="/userList")
-    public List<User> userList(String account,String employeeName ,String teacher, String schoolId ,String kind ,String pageSize,String pageNo ){
-           List<User> userlist = svr.userList(account,employeeName,teacher,schoolId,kind,pageSize,pageNo);
+    public List<User> userList(String account,String employeeName ,String teacher, String schoolId ,String kind ,String schoolAdmin,String pageSize,String pageNo ){
+           List<User> userlist = svr.userList(account,employeeName,teacher,schoolId,kind,schoolAdmin,pageSize,pageNo);
            return userlist;
     }
 

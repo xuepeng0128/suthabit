@@ -22,5 +22,6 @@ public class Student {
    private String sex;
    private String address ; // 家庭住址
    private String tel;
+   private List<String> openIds; // 小程序openid
 
 }

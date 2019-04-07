@@ -21,9 +21,11 @@ public class TeacherHabit {
     private List<String> circleIds; // 所属圈子
     private Teacher teacher; // 创建习惯的任职老师
     private Habit habit;  // 创建的习惯
-    private boolean alljoin; // 是否圈子全员参加
     private int guodoubi; // 打卡所得果豆币
     private Date beginDate; // 习惯开始时间
     private Date endDate; // 习惯结束时间
     private List<Student> joinStudents; // 参加的学生
+    private float score; // 考核的分值
+    private String examBatch; // 考核批次
+    private String examMemo ; // 考核说明
 }
