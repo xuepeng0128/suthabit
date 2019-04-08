@@ -23,5 +23,6 @@ public class Classes {
     private int classes;// 班级
     private Teacher headmaster; // 班主任
     private School school; // 所属学校
+    private List<Teacher> assTeachers ; // 代课老师
     private List<Student> students; // 班级学生
 }

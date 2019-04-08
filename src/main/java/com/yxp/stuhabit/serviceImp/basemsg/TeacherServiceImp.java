@@ -52,7 +52,7 @@ public class TeacherServiceImp implements TeacherService {
         }
 
         if (pageNo != null){
-            query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+            query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
         }
         List<Teacher> list = mongoTemplate.find(query,Teacher.class);
         map.put("list",list);

@@ -2,8 +2,10 @@ package com.yxp.stuhabit.serviceImp.system;
 
 import com.alibaba.fastjson.JSON;
 import com.yxp.stuhabit.common.Md5Tool;
+import com.yxp.stuhabit.entity.District;
 import com.yxp.stuhabit.entity.Menu;
 import com.yxp.stuhabit.entity.User;
+import com.yxp.stuhabit.repo.dic.DistrictRepo;
 import com.yxp.stuhabit.repo.system.MenuRepo;
 import com.yxp.stuhabit.repo.system.UserRepo;
 import com.yxp.stuhabit.service.system.InitSysService;
@@ -22,6 +24,8 @@ public class InitSysServiceImpl implements InitSysService {
     UserRepo userRepo;
     @Autowired
     MenuRepo menuRepo;
+    @Autowired
+    DistrictRepo districtRepo;
     @Override
     public void initSys() {
         //1.判断是否存在admin用户
@@ -36,6 +40,11 @@ public class InitSysServiceImpl implements InitSysService {
 
         userRepo.save(new User("supadmin","supadmin",Md5Tool.string2MD5("a"),null,null,true,false,false,null,null,
                 null));
+
+
+        //.4.插入区域字典
+        List<District> districtList = JSON.parseArray(this.cityJsonstr(),District.class);
+        districtRepo.saveAll(districtList);
 
 
 
@@ -108,9 +117,20 @@ public class InitSysServiceImpl implements InitSysService {
         return jsonstr;
     }
 
-    // 市州
+    // 区域
+    // private String  districtId;
+    //   private String  districtName;
+    //   private City city;
     private String cityJsonstr(){
-        String jsonstr="[";
+        String jsonstr="[" +
+                        "{districtId :'370602000000',districtName :'芝罘区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370611000000',districtName :'福山区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370612000000',districtName :'牟平区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370613000000',districtName :'莱山区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370634000000',districtName :'长岛县',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370671000000',districtName :'烟台高新技术产业开发区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "{districtId :'370672000000',districtName :'烟台经济技术开发区',city :{cityId : '370600000000',cityName : '烟台市'}}," +
+                        "]";
         return jsonstr;
     }
 

@@ -43,7 +43,7 @@ public class EmployeeServiceImp implements EmployeeService {
             map.put("total" , mongoTemplate.count(query,Employee.class));
         }
         if (pageNo != null){
-            query.addCriteria(criteria).skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
+            query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
         }
         List<Employee> list = mongoTemplate.find(query,Employee.class);
         map.put("list",list);

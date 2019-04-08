@@ -19,6 +19,7 @@ public class DistrictCtrl {
 
     @GetMapping(value="/districtList")
     public List<District> districtList(){
+
         return svr.districtList();
     }
 

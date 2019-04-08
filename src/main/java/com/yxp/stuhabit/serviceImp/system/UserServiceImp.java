@@ -34,15 +34,15 @@ public class UserServiceImp implements UserService {
         {
             criteria=criteria.and("teacher.teacherName").regex(".*" +teacher +"*.");
         }
-        if (kind.equals("1"))
-        {
-            criteria=criteria.and("teacher").exists(false);
-            criteria=criteria.orOperator(new Criteria().and("supperAdmin").is(true));
-        }else if (kind.equals("2"))
-        {
-            criteria=criteria.and("employee").exists(false);
-            criteria=criteria.and("manageSchool.schoolId").is(schoolId);
-            criteria=criteria.orOperator(new Criteria().and("schoolAdmin").is(true));
+        if (kind != null) {
+            if (kind.equals("1")) {
+                criteria = criteria.and("teacher").exists(false);
+                criteria = criteria.orOperator(new Criteria().and("supperAdmin").is(true));
+            } else if (kind.equals("2")) {
+                criteria = criteria.and("employee").exists(false);
+                criteria = criteria.and("manageSchool.schoolId").is(schoolId);
+                criteria = criteria.orOperator(new Criteria().and("schoolAdmin").is(true));
+            }
         }
         if (schoolAdmin != null && !schoolAdmin.isEmpty()){
             criteria=criteria.and("schoolAdmin").is(true);
