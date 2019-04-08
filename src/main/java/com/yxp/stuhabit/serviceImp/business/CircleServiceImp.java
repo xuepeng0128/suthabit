@@ -97,8 +97,8 @@ public class CircleServiceImp implements CircleService {
 
 
     @Override
-    public Map<String,Object> schoolCircleList(String circleName, String schoolId, String schoolName,  String teacherPaperId,
-                                               String teacharName, String studentName, String studentPaperId,Date buildDateBegin , Date buildDateEnd,
+    public Map<String,Object> schoolCircleList(String circleName, String schoolId,String teacherPaperId,
+                                               String teacharName, String studentName,Date buildDateBegin , Date buildDateEnd,
                                                String pageSize, String pageNo , String getTotal) {
         Map<String,Object> map= new HashMap<String,Object>();
         Criteria criteria = new Criteria( );
@@ -110,22 +110,20 @@ public class CircleServiceImp implements CircleService {
         {
             criteria=criteria.and("school.schoolId").regex(".*" +schoolId +"*.");
         }
-        if (schoolName!=null && !schoolName.equals(""))
+        if (teacherPaperId != null && !teacherPaperId.equals("") )
         {
-            criteria=criteria.and("school.schoolName").regex(".*" +schoolName +"*.");
-        }
-        if (teacherPaperId!=null && !teacherPaperId.equals(""))
-        {
-            criteria=criteria.and("teacher.paperId").regex(".*" +teacherPaperId +"*.");
+            criteria=criteria.andOperator(
+                    criteria.orOperator(  Criteria.where("buildMan.paperId").is(teacherPaperId),
+                                            Criteria.where("teachers.paperId").is(teacherPaperId)
+                    )
+            )
+            ;
         }
         if (teacharName!=null && !teacharName.equals(""))
         {
-            criteria=criteria.and("teacher.teacharName").regex(".*" +teacharName +"*.");
+            criteria=criteria.and("buildMan.teacharName").regex(".*" +teacharName +"*.");
         }
-        if (studentPaperId!=null && !studentPaperId.equals(""))
-        {
-            criteria=criteria.and("student.paperId").regex(".*" +studentPaperId +"*.");
-        }
+
         if (studentName!=null && !studentName.equals(""))
         {
             criteria=criteria.and("student.studentName").regex(".*" +studentName +"*.");
@@ -152,8 +150,6 @@ public class CircleServiceImp implements CircleService {
             long total= mongoTemplate.count(query,Circle.class);
             map.put("total",total);
         }
-
-
         query.skip( (Integer.parseInt(pageNo) -1)* Integer.parseInt(pageSize)).limit(Integer.parseInt(pageSize));
         List<Circle> list = mongoTemplate.find(query,Circle.class);
         map.put("list",list);

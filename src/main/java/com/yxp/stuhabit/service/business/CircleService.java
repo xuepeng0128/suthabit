@@ -12,8 +12,8 @@ public interface CircleService {
                                           Date buildDateBegin , Date buildDateEnd,String queryPaperId,
                                          String pageSize, String pageNo , String getTotal);
 
-    public Map<String,Object> schoolCircleList(String circleName, String schoolId, String schoolName,  String teacherPaperId,
-                                         String teacharName, String studentName, String studentPaperId,Date buildDateBegin , Date buildDateEnd,
+    public Map<String,Object> schoolCircleList(String circleName, String schoolId,String teacherPaperId,
+                                         String teacharName, String studentName,Date buildDateBegin , Date buildDateEnd,
                                          String pageSize, String pageNo , String getTotal);
 
     public Map<String,Object> trainSchoolCircleList(String circleName,  String trainSchoolId, String trainSchoolName, String teacherPaperId,
