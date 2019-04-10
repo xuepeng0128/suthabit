@@ -18,18 +18,14 @@ import java.util.List;
 public class TeacherHabit {
     @Id
     private ObjectId id;
-    private List<String> circleIds; // 所属圈子
+    private String circleId; // 所属圈子
     private Teacher teacher; // 创建习惯的任职老师
+    private Date buildDate; // 创建时间
     private Habit habit;  // 创建的习惯
     private int guodoubi; // 打卡所得果豆币
     private Date beginDate; // 习惯开始时间
     private Date endDate; // 习惯结束时间
     private List<Student> joinStudents; // 参加的学生
     private float score; // 考核的分值(每天)
-    private String examBatch; // 考核批次
-    private String examMemo ; // 考核说明
-    private Date beginExamDate; // 考核开始日期
-    private Date endExamDate; // 考核结束日期
-    private Teacher examTeacher; // 设定考核的老师
 
 }

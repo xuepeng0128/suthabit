@@ -1,6 +1,8 @@
 package com.yxp.stuhabit.controller.corp.system;
 
+import com.yxp.stuhabit.entity.CorpDuty;
 import com.yxp.stuhabit.entity.Employee;
+import com.yxp.stuhabit.service.dic.CorpDutyService;
 import com.yxp.stuhabit.service.system.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,8 @@ import java.util.Map;
 public class EmployeeCtrl {
     @Autowired
     private EmployeeService svr;
+    @Autowired
+    private CorpDutyService corpDutyService;
 
     @GetMapping(value="/employeeList")
     public Map<String,Object> employeeList(String paperId, String employeeName, String tel, String dutyName, String pageSize, String pageNo,String getTotal){
@@ -27,10 +31,12 @@ public class EmployeeCtrl {
 
     @PostMapping(value="/insertEmployee")
     public Employee insertEmployee(@RequestBody Employee employee){
+        employee.setDuty( corpDutyService.findCorpDutyById(employee.getDuty().getCorpDutyId()));
         return svr.insertEmployee(employee);
     }
     @PostMapping(value="/updateEmployee")
     public Employee updateEmployee(@RequestBody Employee employee){
+        employee.setDuty( corpDutyService.findCorpDutyById(employee.getDuty().getCorpDutyId()));
         return svr.updateEmployee(employee);
     }
 
